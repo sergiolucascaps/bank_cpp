@@ -1,11 +1,13 @@
 #include<iostream>
 #include<string>
 #include "Conta.hpp"
+#include "Holder.hpp"
+#include "Cpf.hpp"
 
 using namespace std;
 
 void writeHolderData(Conta& c) {
-	cout << "Cliente: " << c.getHolderName() << " CPF: " << c.getHolderCpf() << endl;
+	cout << "Cliente: " << c.holder.getHolderName() << " CPF: " << c.holder.cpf.getHolderCpf() << endl;
 	cout << "Nr Conta: " << c.getNumber() << endl;
 	cout << "Saldo: " << c.getBalance() << endl;
 }
@@ -36,10 +38,16 @@ void writeMenu()
 
 }
 
+void displayBalance(const Conta& conta)
+{
+	cout << "O saldo da conta é: " << conta.getBalance() << endl;
+}
+
 
 int main()
 {
-	Conta c("0415", "012.345.678-90", "Sergio Lucas");
+	Conta c("0104", Holder("Sergio Lucas", Cpf("090.999.888.70")));
+	
 
 	short op;
 	do {

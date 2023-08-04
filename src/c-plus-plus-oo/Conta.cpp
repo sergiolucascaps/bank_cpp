@@ -3,17 +3,22 @@
 
 int Conta::qtdAccountingsCreated = 0;
 
-Conta::Conta(std::string number, std::string holderCpf, std::string holderName) :
+Conta::Conta(std::string number, Holder holder) :
 	number(number),
-	holderCpf(holderCpf),
-	holderName(holderName),
+	holder(holder),
 	balance(0)
 {
+	//Holder(holder)
 	qtdAccountingsCreated++;
 	/*this->number = number;
 	this->holderCpf = holderCpf;
 	this->holderName = holderName;
 	this->balance = 0;*/
+}
+
+Conta::~Conta()
+{
+	qtdAccountingsCreated--;
 }
 
 int Conta::getQtdAccountingsCreated()
@@ -25,10 +30,14 @@ void Conta::withdraw(float withdrawalAmount)
 {
 	if (withdrawalAmount < 0) {
 		std::cout << "Valor negativo informado para saque. Operação não realizada" << std::endl;
+		system("pause");
+		return;
 	}
 
 	if (withdrawalAmount > balance) {
 		std::cout << "Valor do saque superior ao saldo atual. Operação não realizada" << std::endl;
+		system("pause");
+		return;
 	}
 
 	balance -= withdrawalAmount;
@@ -43,7 +52,7 @@ void Conta::deposit(float depositAmount)
 	balance += depositAmount;
 }
 
-float Conta::getBalance()
+float Conta::getBalance() const
 {
 	return balance;
 }
@@ -51,16 +60,6 @@ float Conta::getBalance()
 std::string Conta::getNumber() const
 {
 	return number;
-}
-
-std::string Conta::getHolderCpf() const
-{
-	return holderCpf;
-}
-
-std::string Conta::getHolderName() const
-{
-	return holderName;
 }
 
 //void Conta::setNumber(std::string nm)

@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include "Holder.hpp"
 
 class Conta
 {
@@ -10,20 +11,18 @@ public:
 
 private:
 	std::string number;
-	std::string holderCpf;
-	std::string holderName;
 	float balance;
 
 public:
-	Conta(std::string number, std::string holderCpf, std::string holderName);
+	Conta(std::string number, Holder holder);
+	~Conta();
 	void withdraw(float valorSaque);
 	void deposit(float valorDeposito);
+	Holder holder;
 
 	// getters
-	float getBalance();
+	float getBalance() const;
 	std::string getNumber() const;
-	std::string getHolderCpf() const;
-	std::string getHolderName() const;
 
 	// setters
 	/*void setNumber(std::string nm);
