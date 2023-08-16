@@ -10,7 +10,7 @@ void Cpf::validateCpf()
 	// TODO: @sergiolucascaps - Implementar
 }
 
-std::string Cpf::getHolderCpf() const
+std::string Cpf::getCpf() const
 {
 	return cpfNumber;
 }

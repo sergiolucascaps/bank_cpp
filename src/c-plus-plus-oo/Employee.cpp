@@ -1,5 +1,5 @@
 #include "Employee.hpp"
 
-Employee::Employee(Cpf cpf, std::string nome, float wage):cpf(cpf), nome(nome), wage(wage)
+Employee::Employee(Cpf cpf, std::string name, float wage):Person(cpf, name), wage(wage)
 {
 }

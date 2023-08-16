@@ -1,15 +1,14 @@
 #pragma once
+#include "Person.hpp"
 #include<string>
 #include "Cpf.hpp"
 
-class Employee
+class Employee : public Person
 {
 private:
-	Cpf cpf;
-	std::string nome;
 	float wage;
 
 public:
-	Employee(Cpf cpf, std::string nome, float wage);
+	Employee(Cpf cpf, std::string name, float wage);
 };
 

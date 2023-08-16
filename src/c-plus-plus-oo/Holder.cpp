@@ -1,22 +1,14 @@
 #include "Holder.hpp"
 #include<iostream>
-#include<string>
 
-Holder::Holder(std::string holderName, Cpf cpf)
-	: holderName(holderName), cpf(cpf)
+Holder::Holder(Cpf cpf, std::string name) : Person(cpf, name)
 {
-	validateHolderName();
 }
 
-std::string Holder::getHolderName() const
-{
-	return holderName;
+std::string Holder::getName() {
+	return name;
 }
 
-void Holder::validateHolderName()
-{
-	if (holderName.size() < 5) {
-		std::cout << "Nome muito curto" << std::endl;
-		exit(1);
-	}
+std::string Holder::getCpfNumber() {
+	return cpf.getCpf();
 }

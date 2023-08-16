@@ -8,7 +8,7 @@ private:
 
 public:
 	Cpf(std::string cpfNumber);
-	std::string getHolderCpf() const;
+	std::string getCpf() const;
 
 private:
 	void validateCpf();

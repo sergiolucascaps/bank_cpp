@@ -7,21 +7,27 @@
 using namespace std;
 
 void writeHolderData(Conta& c) {
-	cout << "Cliente: " << c.holder.getHolderName() << " CPF: " << c.holder.cpf.getHolderCpf() << endl;
+	cout << "Cliente: " << c.holder.getName() << " CPF: " << c.holder.getCpfNumber() << endl;
 	cout << "Nr Conta: " << c.getNumber() << endl;
 	cout << "Saldo: " << c.getBalance() << endl;
 }
 
-void writeSeparateCharacters(short qtd)
+void writeSeparateCharacters(short qtd, short linesStart = 0, short linesEnd = 0)
 {
-	cout << endl << endl;
+	for (short i = 0; i < linesStart; i++)
+	{
+		cout << endl;
+	}
 
 	for (short i = 0; i < qtd; i++)
 	{
 		cout << "*";
 	}
 
-	cout << endl << endl;
+	for (short i = 0; i < linesEnd; i++)
+	{
+		cout << endl;
+	}
 }
 
 void writeMenu()
@@ -46,7 +52,7 @@ void displayBalance(const Conta& conta)
 
 int main()
 {
-	Conta c("0104", Holder("Sergio Lucas", Cpf("090.999.888.70")));
+	Conta c("0104", Holder(Cpf("090.999.888.70"), "Sergio Lucas"));
 	
 
 	short op;
@@ -54,7 +60,7 @@ int main()
 		system("clear||cls");
 		cout << "Quantidade de contas criadas até o momento: " << c.getQtdAccountingsCreated() << endl;
 		writeHolderData(c);
-		writeSeparateCharacters(10);
+		writeSeparateCharacters(10, 2, 2);
 		writeMenu();
 		cin >> op;
 
